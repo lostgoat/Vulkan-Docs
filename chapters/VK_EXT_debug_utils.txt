@@ -44,6 +44,14 @@ include::../api/protos/vkSetDebugUtilsObjectNameEXT.txt[]
 
 include::../validity/protos/vkSetDebugUtilsObjectNameEXT.txt[]
 
+.Valid Usage
+****
+  * pname:pNameInfo\->objectType must: not be ename:VK_OBJECT_TYPE_UNKNOWN
+  * pname:pNameInfo\->objectHandle must: not be dlink:VK_NULL_HANDLE
+  * pname:pNameInfo\->objectHandle must: be a Vulkan object of the type associated with
+    pname:pNameInfo\->objectType as defined in <<debugging-object-types>>.
+****
+
 --
 
 [open,refpage='VkDebugUtilsObjectNameInfoEXT',desc='Specify parameters of a name to give to an object',type='structs']
@@ -65,17 +73,6 @@ Applications may: change the name associated with an object simply by
 calling fname:vkSetDebugUtilsObjectNameEXT again with a new string.
 If pname:pObjectName is an empty string, then any previously set name is
 removed.
-
-.Valid Usage
-****
-  * [[VUID-VkDebugUtilsObjectNameInfoEXT-objectType-01905]]
-    pname:objectType must: not be ename:VK_OBJECT_TYPE_UNKNOWN
-  * [[VUID-VkDebugUtilsObjectNameInfoEXT-objectHandle-01906]]
-    pname:objectHandle must: not be dlink:VK_NULL_HANDLE
-  * [[VUID-VkDebugUtilsObjectNameInfoEXT-objectHandle-01907]]
-    pname:objectHandle must: be a Vulkan object of the type associated with
-    pname:objectType as defined in <<debugging-object-types>>.
-****
 
 include::../validity/structs/VkDebugUtilsObjectNameInfoEXT.txt[]
 

@@ -1,0 +1,52 @@
+include::meta/VK_MESA_display_permissions.txt[]
+
+*Last Modified Date*::
+     2018-09-11
+*IP Status*::
+    No known IP claims.
+*Contributors*::
+  - Andres Rodriguez, Valve
+
+For DRM based driver stacks, a direct mode display acquisition operation will
+provide the caller with elevated privileges. The caller may then wish to create
+a VkDevice using these elevated privileges.
+
+This extension provides a mechanism for the caller to specify that a
+vkCreateDevice operation should inherit the privileges associated with a
+VkDisplayKHR object.
+
+When vkCreateDevice is called, if a sname:VkDeviceInheritDisplayPermissionsMESA
+structure is present in the pNext chain, then the device will inherit the
+privileges associated with the VkDisplayKHR object specified in
+sname:VkDeviceInheritDisplayPermissionsMESA::pname:display.
+
+TODO: document restrictions, e.g.:
+  * No memory allocations between display acquire and device creation
+
+=== New Object Types
+
+None.
+
+=== New Enum Constants
+
+  * Extending elink:VkStructureType:
+  ** ename:VK_STRUCTURE_TYPE_DISPLAY_PERMISSIONS_MESA
+
+=== New Enums
+
+=== New Structures
+
+  * slink:VkDeviceInheritDisplayPermissionsMESA
+
+=== New Functions
+
+None.
+
+=== Issues
+
+None.
+
+=== Version History
+
+ * Revision 1, 2018-09-11 (Andres Rodriguez)
+   - First version.

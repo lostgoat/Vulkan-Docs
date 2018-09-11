@@ -2388,6 +2388,11 @@ server.
             <member len="swapchainCount">const <type>uint32_t</type>* <name>pDeviceMasks</name></member>
             <member><type>VkDeviceGroupPresentModeFlagBitsKHR</type> <name>mode</name></member>
         </type>
+        <type category="struct" name="VkDeviceInheritDisplayPermissionsMESA" structextends="VkDeviceCreateInfo">
+            <member values="VK_STRUCTURE_TYPE_DISPLAY_PERMISSIONS_MESA"><type>VkStructureType</type> <name>sType</name></member>
+            <member>const <type>void</type>*                      <name>pNext</name></member>
+            <member><type>VkDisplayKHR</type> <name>display</name></member>
+        </type>
         <type category="struct" name="VkDeviceGroupDeviceCreateInfo" structextends="VkDeviceCreateInfo">
             <member values="VK_STRUCTURE_TYPE_DEVICE_GROUP_DEVICE_CREATE_INFO"><type>VkStructureType</type> <name>sType</name></member>
             <member>const <type>void</type>*                      <name>pNext</name></member>
@@ -9160,6 +9165,13 @@ server.
             <require>
                 <enum value="0"                                              name="VK_EXT_EXTENSION_220_SPEC_VERSION"/>
                 <enum value="&quot;VK_EXT_extension_220&quot;"               name="VK_EXT_EXTENSION_220_EXTENSION_NAME"/>
+            </require>
+        </extension>
+        <extension name="VK_MESA_display_permissions" number="221" type="device" author="MESA" contact="Andres Rodriguez @lostgoat" supported="vulkan">
+            <require>
+                <enum value="1"                                              name="VK_MESA_DISPLAY_PERMISSIONS_SPEC_VERSION"/>
+                <enum value="&quot;VK_MESA_display_permissions&quot;"               name="VK_MESA_DISPLAY_PERMISSIONS_SPEC_NAME"/>
+                <type name="VkDeviceInheritDisplayPermissionsMESA"/>
             </require>
         </extension>
     </extensions>
